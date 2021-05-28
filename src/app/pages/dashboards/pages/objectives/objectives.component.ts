@@ -12,6 +12,10 @@ export class ObjectivesComponent implements OnInit {
   constructor(private objectivesService: ObjectivesService) { }
 
   ngOnInit(): void {
-    this.objectivesService.passComponent(FiltersComponent)
+    this.objectivesService.passFilterComponent()
+    this.objectivesService.shaderFilterSubmitted()
+      .subscribe(() => {
+        this.objectivesService.alert('Objectives')
+      })
   }
 }
